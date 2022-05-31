@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -25,5 +26,9 @@ public class Tour {
     @JoinColumn(name = "photo_id", referencedColumnName = "id")
     private Photo photo;
 
+    @Temporal(TemporalType.DATE)
     private Date date;
+
+    @OneToMany(mappedBy = "tour")
+    private List<Tour_point> tour_point;
 }
