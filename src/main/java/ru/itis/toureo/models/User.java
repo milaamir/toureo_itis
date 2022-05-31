@@ -14,6 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "account")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +27,12 @@ public class User {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    @JoinColumn(name = "role_id")
     private Role role;
+
     @OneToOne
-    @JoinColumn(name = "tour_id", referencedColumnName = "id")
     private Tour tour;
+
+
 
 }

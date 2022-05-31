@@ -21,6 +21,6 @@ public class Hotel {
     private Integer stars;
 
     @ManyToOne
-    @JoinColumn(name = "city_id", referencedColumnName = "id")
+    @JoinColumn(name = "city_id")
     private City city;
 }

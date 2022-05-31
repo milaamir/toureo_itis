@@ -20,6 +20,6 @@ public class Sight {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "city_id", referencedColumnName = "id")
+    @JoinColumn(name = "city_id")
     private City city;
 }

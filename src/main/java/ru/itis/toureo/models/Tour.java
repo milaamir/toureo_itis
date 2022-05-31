@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,12 +24,13 @@ public class Tour {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "photo_id", referencedColumnName = "id")
+    @JoinColumn(name = "photo_id")
     private Photo photo;
 
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @OneToMany(mappedBy = "tour")
-    private List<Tour_point> tour_point;
+    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Tour_point> tour_point ;
+
 }

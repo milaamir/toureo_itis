@@ -21,7 +21,7 @@ public class User_tour {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "status_id", referencedColumnName = "id")
+    @JoinColumn(name = "status_id")
     private Status status;
 
     @Temporal(TemporalType.DATE)
@@ -31,7 +31,8 @@ public class User_tour {
     private List<Tour_point> tour_point;
 
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+
 
 }
