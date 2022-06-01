@@ -1,11 +1,9 @@
 package ru.itis.toureo.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.itis.toureo.models.City;
 import ru.itis.toureo.models.Country;
 
 import java.util.List;
@@ -15,25 +13,22 @@ import java.util.stream.Collectors;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CityDto {
+public class CountryDto {
     private Long id;
     private String name;
-    private Country country;
 
-    public static CityDto from(City city) {
-        return CityDto.builder()
-                .id(city.getId())
-                .name(city.getName())
-                .country(city.getCountry())
+    public static CountryDto from (Country country) {
+        return CountryDto.builder()
+                .id(country.getId())
+                .name(country.getName())
                 .build();
     }
 
-    public static List<CityDto> from(List<City> cities) {
-        return cities
+    public static List<CountryDto> from(List<Country> countries) {
+        return countries
                 .stream()
-                .map(CityDto::from)
+                .map(CountryDto::from)
                 .collect(Collectors.toList());
     }
+
 }
-
-
